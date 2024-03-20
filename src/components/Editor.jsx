@@ -97,24 +97,24 @@ export default function Editor(props) {
     return (
         <div className='flex flex-col gap-2 w-[70%] h-full  p-10 text-lg mt-[-80px]'>
             <div className='py-5'>
-                <FaArrowLeftLong onClick={handleNewPrueba} className='cursor-pointer text-2xl hover:text-[#e54666] text-gray-600' />
+                <FaArrowLeftLong onClick={handleNewPrueba} className='cursor-pointer text-2xl hover:text-primary text-gray-600 ' />
             </div>
             <span className='text-6xl font-bold'>{projectName}</span>
             <span className='font-bold'>Tipo de prueba:</span>
             <div>
                 <ul className='flex gap-2'>
-                    <li onClick={() => { handleTypeTest('unidad') }} className={`cursor-pointer ${typeTest === 'unidad' ? 'bg-[#e54666] text-white' : 'bg-[#f1f5f9] text-black'} px-2 py-1 rounded-sm hover:bg-[#e54666] hover:text-white`}>Unidad</li>
-                    <li onClick={() => { handleTypeTest('integracion') }} className={`cursor-pointer ${typeTest === 'integracion' ? 'bg-[#e54666] text-white' : 'bg-[#f1f5f9] text-black'} px-2 py-1 rounded-sm hover:bg-[#e54666] hover:text-white`}>Integracion</li>
-                    <li onClick={() => { handleTypeTest('sistema') }} className={`cursor-pointer ${typeTest === 'sistema' ? 'bg-[#e54666] text-white' : 'bg-[#f1f5f9] text-black'} px-2 py-1 rounded-sm hover:bg-[#e54666] hover:text-white`}>Sistema</li>
-                    <li onClick={() => { handleTypeTest('aceptacion') }} className={`cursor-pointer ${typeTest === 'aceptacion' ? 'bg-[#e54666] text-white' : 'bg-[#f1f5f9] text-black'} px-2 py-1 rounded-sm hover:bg-[#e54666] hover:text-white`}>Aceptación</li>
-                    <li onClick={() => { handleTypeTest('rendimiento') }} className={`cursor-pointer ${typeTest === 'rendimiento' ? 'bg-[#e54666] text-white' : 'bg-[#f1f5f9] text-black'} px-2 py-1 rounded-sm hover:bg-[#e54666] hover:text-white`}>Rendimiento</li>
-                    <li onClick={() => { handleTypeTest('seguridad') }} className={`cursor-pointer ${typeTest === 'seguridad' ? 'bg-[#e54666] text-white' : 'bg-[#f1f5f9] text-black'} px-2 py-1 rounded-sm hover:bg-[#e54666] hover:text-white`}>Seguridad</li>
+                    <li onClick={() => { handleTypeTest('unidad') }} className={`cursor-pointer ${typeTest === 'unidad' ? 'bg-primary text-primary-foreground' : 'bg-[#f1f5f9] text-black'} px-2 py-1 rounded-sm hover:bg-primary hover:text-white`}>Unidad</li>
+                    <li onClick={() => { handleTypeTest('integracion') }} className={`cursor-pointer ${typeTest === 'integracion' ? 'bg-primary text-primary-foreground' : 'bg-[#f1f5f9] text-black'} px-2 py-1 rounded-sm hover:bg-primary hover:text-white`}>Integracion</li>
+                    <li onClick={() => { handleTypeTest('sistema') }} className={`cursor-pointer ${typeTest === 'sistema' ? 'bg-primary text-primary-foreground' : 'bg-[#f1f5f9] text-black'} px-2 py-1 rounded-sm hover:bg-primary hover:text-white`}>Sistema</li>
+                    <li onClick={() => { handleTypeTest('aceptacion') }} className={`cursor-pointer ${typeTest === 'aceptacion' ? 'bg-primary text-primary-foreground' : 'bg-[#f1f5f9] text-black'} px-2 py-1 rounded-sm hover:bg-primary hover:text-white`}>Aceptación</li>
+                    <li onClick={() => { handleTypeTest('rendimiento') }} className={`cursor-pointer ${typeTest === 'rendimiento' ? 'bg-primary text-primary-foreground' : 'bg-[#f1f5f9] text-black'} px-2 py-1 rounded-sm hover:bg-primary hover:text-white`}>Rendimiento</li>
+                    <li onClick={() => { handleTypeTest('seguridad') }} className={`cursor-pointer ${typeTest === 'seguridad' ? 'bg-primary text-primary-foreground' : 'bg-[#f1f5f9] text-black'} px-2 py-1 rounded-sm hover:bg-primary hover:text-white`}>Seguridad</li>
                 </ul>
             </div>
-            <p className='text-base'>Proporcione la información necesaria como soporte ante este informe.</p>
+            <p className='text-base'>Proporcione la información necesaria como soporte ante este informe. <a href="#" className="text-primary decoration-slice font-bold">GUIA</a></p>
             <hr />
             <div id='editorjs' className='relative flex flex-col flex-1 align-top border overflow-y-auto'>
-                <FaFloppyDisk className='absolute right-2 bottom-2 text-2xl cursor-pointer text-gray-400 hover:text-[#e54666]' onClick={
+                <FaFloppyDisk className='absolute right-2 bottom-2 text-2xl cursor-pointer text-gray-400 hover:text-primary' onClick={
                     editor ? async () => {
                         const data = await editor.save();
                         console.log(data);

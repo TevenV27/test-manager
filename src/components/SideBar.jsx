@@ -32,15 +32,15 @@ export default function SideBar({ sendProjectsData }) {
   };
 
   return (
-    <nav className="flex flex-col w-80 h-screen border-r border-1 border-gray-300 text-gray-700 p-2 gap-10" >
+    <nav className="flex flex-col w-80 h-screen border-r  text-gray-700 p-2 gap-10" >
       <div className="flex items-center  h-24 gap-5 border-b border-1 border-hray-500">
         <picture>
           <source srcSet="/logo.png" type="image/png" />
           <img className="w-[60px]" src="/logo.png" alt="logo" />
         </picture>
         <div className='flex flex-col '>
-          <h1 className=" text-2xl">Steven Victoria</h1>
-          <h1 className="text-1xl">Desarrollador</h1>
+          <h1 className=" text-2xl text-foreground">Steven Victoria</h1>
+          <h1 className="text-1xl text-foreground">Desarrollador</h1>
         </div>
 
       </div>
@@ -48,8 +48,8 @@ export default function SideBar({ sendProjectsData }) {
       <div className='flex-1 flex flex-col gap-2'>
 
         <div className='flex justify-between'>
-          <span>Proyectos</span>
-          <button onClick={()=> handleOpenModal()}  className='p-1 rounded-lg hover:bg-[#e64566] hover:text-white'><FaPlus /></button>
+          <span className='text-foreground'>Proyectos</span>
+          <button onClick={()=> handleOpenModal()}  className='p-1 rounded-lg text-foreground hover:bg-primary hover:text-primary-foreground'><FaPlus /></button>
         </div>
         <div>
 
@@ -65,7 +65,7 @@ export default function SideBar({ sendProjectsData }) {
                   sendProjectsData(project);
                   handleFocus(index);
                 }}
-                className={`flex items-center gap-2 p-2 border border-1 ${focus === index ? 'bg-[#e64566] text-white' : 'bg-slate-100'} hover:bg-[#e64566] hover:text-white rounded-md`}
+                className={`flex items-center gap-2 p-2 border border-1 ${focus === index ? 'bg-primary text-primary-foreground' : 'bg-secondary text-secondary-foreground'} hover:bg-primary hover:text-primary-foreground rounded-md`}
               > <FaBox />
                 {project.nombre}
               </li>
@@ -76,16 +76,13 @@ export default function SideBar({ sendProjectsData }) {
 
       </div>
 
-      <Button
+      <button
 
         onClick={() => { router.push('/auth/login') }}
-        className='cursor-pointer'
-        variant="solid"
-        color='ruby'
-        size={'3'}>
+        className='cursor-pointer p-2 bg-primary text-primary-foreground rounded-md'>
         Cerrar Sesion
 
-      </Button>
+      </button>
 
 
 
