@@ -22,12 +22,12 @@ export default function PanelTest(props) {
   return (
     <section id='test-panel' className='flex flex-1 flex-col pt-40 pb-20  items-center w-full h-screen relative overflow-y-auto '>
 
-      {!projectData && (
+      {/* {!projectData && (
         <picture className='w-full h-full flex justify-center items-center'>
           <source srcSet="/logo.png" type="image/png" />
           <img className='w-[650px] opacity-10' src="/logo.png" alt="logo" />
         </picture>
-      )}
+      )} */}
 
       {projectData && !addPrueba && (
 
@@ -68,7 +68,7 @@ export default function PanelTest(props) {
               {projectData.pruebas.map((prueba, index) => (
 
                 <div className='flex flex-col'>
-                  <div key={index} onClick={() => handlePrueba(index)} className={`flex items-center gap-3 pl-3 ${indexPrueba === index && togglePrueba ? 'bg-primary text-primary-foreground' : 'bg-secondary text-secondary-foreground '} p-2 rounded-md cursor-pointer hover:bg-primary hover:text-white`}>
+                  <div key={index} onClick={() => handlePrueba(index)} className={`flex items-center gap-3 pl-3 ${indexPrueba === index && togglePrueba ? 'bg-primary text-primary-foreground' : 'bg-secondary text-secondary-foreground '} border  p-2 rounded-md cursor-pointer hover:bg-primary hover:text-white`}>
                     {
                       indexPrueba === index && togglePrueba ? <FaAngleUp /> : <FaAngleDown />
                     }

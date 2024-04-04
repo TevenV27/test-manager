@@ -1,21 +1,33 @@
 'use client'
-import {React, useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import SideBar from '@/components/SideBar.jsx'
 import PanelTest from '@/components/PanelTest'
-export default function page() {
+import { useRouter } from 'next/navigation'
+import Cookies from 'js-cookie'
 
-  const [projectsData, setProjectsData] = useState()
+export default function Page() {
+  const [projectsData, setProjectsData] = useState(null)
+  const router = useRouter()
+  const [userToken, setUserToken] = useState(null)
 
+  useEffect(() => {
+    const token = Cookies.get('userToken')
+    setUserToken(token)
+    if (!token) {
+      router.push('/auth/login')
+    }
+  }, [])
 
-  const extractProjects = data => {
-    setProjectsData(data)  
-   
+  const extractProjects = (data) => {
+    setProjectsData(data)
   }
 
   return (
-    <main className='flex'>
+    userToken ? (
+      <main className='flex'>
         <SideBar sendProjectsData={extractProjects} />
         <PanelTest projectData={projectsData} />
-    </main>
+      </main>
+    ) : null
   )
 }

@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${theme === 'light' ? 'light' : 'dark'} bg-background ${inter.className}`}>
         <Theme className={`${theme === 'light' ? 'light' : 'dark'} bg-background`}>
           <SetTheme theme={theme} toggleTheme={toggleTheme} /> {/* Pasar theme y toggleTheme como props */}
           {children}
